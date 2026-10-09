@@ -37,6 +37,7 @@ await cp(join(root, 'design', 'aurora-wordmark.svg'), join(out, 'assets', 'auror
 await cp(join(root, 'design', 'aurora-monogram.svg'), join(out, 'assets', 'aurora-monogram.svg'));
 await mkdir(join(out, 'assets', 'images'), { recursive: true });
 await cp(join(root, 'design', 'aurora-share.png'), join(out, 'assets', 'images', 'aurora-share.png'));
+await cp(join(root, 'assets', 'images', 'dragon-emblem.png'), join(out, 'assets', 'images', 'dragon-emblem.png'));
 
 const publicAssets = manifest.assets
   .filter(asset => asset.ownerApproved === true && asset.published === true && asset.src && asset.alt)

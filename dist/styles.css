@@ -42,7 +42,9 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(3px); }
 .reading-column { max-width: 760px; }
 
 /* Entry screen */
-.entry-screen { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; padding: 56px var(--gutter) 40px; }
+.entry-screen { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; display: grid; grid-template-rows: auto 1fr; padding: 56px var(--gutter) 40px; }
+.entry-screen::before { content: ""; position: absolute; z-index: 0; top: 50%; left: 50%; width: min(78vw, 68svh, 980px); aspect-ratio: 1078 / 1460; transform: translate(-50%, -50%); background: url('/assets/images/dragon-emblem.png') center / contain no-repeat; opacity: .21; pointer-events: none; }
+.entry-screen > * { position: relative; z-index: 1; }
 .entry-wordmark { width: 168px; height: 28px; display: block; justify-self: center; }
 .entry-wordmark img, .wordmark img { width: 100%; height: auto; }
 .entry-wordmark img { filter: brightness(0) invert(1); }
@@ -282,10 +284,12 @@ textarea.form-control { min-height: 144px; resize: vertical; }
 .exit-footer { min-height: 74px; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--line-light); color: var(--ink-secondary); font-size: 14px; }
 
 /* Footer */
-.site-footer { border-top: 1px solid var(--line-dark); padding-top: 80px; }
+.site-footer { position: relative; isolation: isolate; overflow: hidden; border-top: 1px solid var(--line-dark); padding-top: 80px; }
+.site-footer::before { content: ""; position: absolute; z-index: 0; inset: 0; background: url('/assets/images/dragon-emblem.png') center / contain no-repeat; opacity: .18; pointer-events: none; }
+.site-footer > .container { position: relative; z-index: 1; }
 .footer-main { display: grid; grid-template-columns: 5fr 3fr 4fr; gap: 32px; padding-bottom: 48px; }
 .footer-brand { display: block; }
-.footer-portrait { width: clamp(108px, 11vw, 156px); margin: 0; }
+.footer-portrait { width: clamp(220px, 22vw, 280px); margin: 0; }
 .footer-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; border: 1px solid var(--line-dark); object-fit: cover; object-position: center 38%; }
 .footer-portrait figcaption { margin-top: 8px; color: var(--mist); font-size: 10px; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
 .footer-main nav { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -350,6 +354,7 @@ textarea.form-control { min-height: 144px; resize: vertical; }
   .mobile-menu > .action { margin-top: 16px; }
   .menu-close { align-self: flex-end; margin-bottom: 12px; }
   .entry-screen { padding: 32px 24px calc(24px + env(safe-area-inset-bottom)); }
+  .entry-screen::before { top: 50%; left: 50%; width: min(100vw, 68svh, 540px); transform: translate(-50%, -50%); opacity: .18; }
   .entry-wordmark { width: 144px; height: 24px; }
   .entry-content { padding-block: 48px; }
   .entry-content h1 { font-size: 40px; line-height: 1.08; }
@@ -442,9 +447,10 @@ textarea.form-control { min-height: 144px; resize: vertical; }
   .reading-content .reading-column > section { margin-top: 28px; }
   .reading-content h2 { font-size: 24px; }
   .site-footer { padding-top: 48px; }
+  .site-footer::before { background-position: 58% center; opacity: .15; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 32px 16px; padding-bottom: 32px; }
   .footer-brand { grid-column: 1 / -1; }
-  .footer-portrait { width: 112px; }
+  .footer-portrait { width: min(48vw, 188px); }
   .footer-main nav { gap: 10px; }
   .footer-main nav a { min-height: 32px; font-size: 14px; }
   .footer-meta { min-height: 0; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; padding-block: 20px calc(20px + env(safe-area-inset-bottom)); font-size: 12px; }
@@ -470,7 +476,7 @@ textarea.form-control { min-height: 144px; resize: vertical; }
   .entry-actions { gap: 10px; }
   .step-item { font-size: 11px; }
   .footer-main nav h2 { font-size: 11px; }
-  .footer-portrait { width: 100px; }
+  .footer-portrait { width: min(48vw, 188px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
