@@ -129,7 +129,7 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(3px); }
 .destination-card--outline:hover { background: #EAE4DF; border-color: var(--lacquer); }
 .destination-card--blush { background: var(--blush); border-color: var(--blush); }
 .destination-card--blush:hover { background: #D3A7B5; }
-.destination-card--blush .eyebrow, .destination-card--blush p { color: var(--lacquer); }
+.destination-card.destination-card--blush .eyebrow, .destination-card.destination-card--blush p { color: var(--lacquer); }
 .destination-card h3 { margin-top: 16px; font-size: 28px; line-height: 1.16; font-weight: 600; letter-spacing: -.02em; }
 .destination-card p { margin-top: 12px; color: var(--ink-secondary); }
 .destination-card .text-action { margin-top: auto; padding-top: 24px; }
