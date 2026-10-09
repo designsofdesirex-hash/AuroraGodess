@@ -30,7 +30,7 @@ Visitors arrive on mobile, browse a compact editorial experience, and leave thro
 
 - Static, front-end only; no checkout, accounts, forms, or private-content claims.
 - Five destinations supplied by the user: X media, Throne, Cash App, LoyalFans, and YouPay.
-- Keep “Goddess” and worship language out of visible website copy, including source-caption excerpts.
+- Keep deity references and submission language out of visible website copy, including source-caption excerpts.
 - Adult-only context must be clear. Do not invent prices, services, testimonial claims, or follower metrics.
 - Design for phones first and use the supplied local videos as a central part of the experience.
 
@@ -38,7 +38,7 @@ Visitors arrive on mobile, browse a compact editorial experience, and leave thro
 
 - Motto: “Your Favorite Investment.”
 - Direct, explicit, dominant femdom voice; no softening into generic creator copy.
-- Display name in site copy: Aurora.
+- Display name in site copy: Queen Aurora.
 - Use only the five supplied outbound URLs.
 - Designs of Desire studio lane: premium web presence for content creators and local businesses; never a generic SaaS or corporate template.
 

@@ -3,7 +3,7 @@
   "packageDate": "2026-10-09",
   "brand": {
     "wordmark": "AURORA",
-    "displayName": "AuroraGodess"
+    "displayName": "Queen Aurora"
   },
   "siteUrl": null,
   "currency": "USD",
@@ -35,49 +35,49 @@
     {
       "path": "/",
       "output": "index.html",
-      "title": "AuroraGodess — Official Website",
+      "title": "Queen Aurora — Official Website",
       "description": "Step into Aurora’s world. Explore selected photographs, find her official pages, or prepare a booking request.",
       "noindex": false
     },
     {
       "path": "/booking",
       "output": "booking/index.html",
-      "title": "Request My Time — AuroraGodess",
+      "title": "Request My Time — Queen Aurora",
       "description": "Prepare a booking request for Aurora with your preferred timing. Pricing is in USD; requests require a personal reply.",
       "noindex": true
     },
     {
       "path": "/gallery",
       "output": "gallery/index.html",
-      "title": "Selected Frames — AuroraGodess",
+      "title": "Selected Frames — Queen Aurora",
       "description": "A curated selection of Aurora’s approved photographs.",
       "noindex": false
     },
     {
       "path": "/links",
       "output": "links/index.html",
-      "title": "Official Links — AuroraGodess",
+      "title": "Official Links — Queen Aurora",
       "description": "Aurora’s LoyalFans, Throne, X, YouPay and Cash App destinations in one place.",
       "noindex": false
     },
     {
       "path": "/policies",
       "output": "policies/index.html",
-      "title": "Booking Information — AuroraGodess",
+      "title": "Booking Information — Queen Aurora",
       "description": "How Aurora’s booking request process works, with pricing in USD.",
       "noindex": true
     },
     {
       "path": "/privacy",
       "output": "privacy/index.html",
-      "title": "Privacy — AuroraGodess",
+      "title": "Privacy — Queen Aurora",
       "description": "How the static website handles entry choices and booking drafts.",
       "noindex": false
     },
     {
       "path": "/exit",
       "output": "exit/index.html",
-      "title": "Exit — AuroraGodess",
+      "title": "Exit — Queen Aurora",
       "description": "You have left Aurora’s website.",
       "noindex": true
     }

@@ -9,7 +9,7 @@
     "next": "Next",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "homeLinkName": "Aurora — Home",
+    "homeLinkName": "Queen Aurora — Home",
     "newTab": "opens in a new tab",
     "noScript": "Enable JavaScript to enter this website and prepare a request."
   },
@@ -24,7 +24,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "AuroraGodess · Official website · Adults only",
+      "eyebrow": "Queen Aurora · Official website · Adults only",
       "heading": "I set the tone.",
       "headingLines": [
         "I set",
@@ -34,7 +34,7 @@
       "primary": "Request my time",
       "secondary": "Explore the gallery",
       "mobileEyebrowLines": [
-        "AuroraGodess · Official website",
+        "Queen Aurora · Official website",
         "Adults only"
       ]
     },
@@ -202,7 +202,7 @@
     "details": "Details",
     "motion": "Motion",
     "showMore": "Show more",
-    "viewerLabel": "Aurora gallery",
+    "viewerLabel": "Queen Aurora gallery",
     "openImage": "Open image",
     "playVideo": "Play video",
     "emptyHeading": "The next edit is on its way.",
@@ -339,6 +339,6 @@
     "explore": "Explore",
     "destinations": "Official destinations",
     "adults": "Adults 18+ only.",
-    "copyrightName": "AuroraGodess"
+    "copyrightName": "Queen Aurora"
   }
 }

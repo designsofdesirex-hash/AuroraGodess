@@ -87,7 +87,6 @@ function footer() {
   return `<footer class="site-footer surface-dark"><div class="container footer-main">
     <div class="footer-brand">
       <figure class="footer-portrait"><img src="/assets/images/gallery03-400.webp" width="400" height="533" alt="Aurora taking a mirror portrait in a black outfit." loading="lazy" decoding="async"><figcaption>Aurora · Official</figcaption></figure>
-      ${wordmark('footer-wordmark')}<p>${esc(copy.footer.body)}</p>
     </div>
     <nav aria-label="${esc(copy.footer.explore)}"><h2>${esc(copy.footer.explore)}</h2>${link('/', copy.nav.home)}${link('/booking', copy.nav.booking)}${link('/gallery', copy.nav.gallery)}${link('/links', copy.nav.links)}${link('/privacy', copy.nav.privacy)}${link('/policies', copy.nav.policies)}</nav>
     <nav aria-label="${esc(copy.footer.destinations)}"><h2>${esc(copy.footer.destinations)}</h2>${externals}</nav>
