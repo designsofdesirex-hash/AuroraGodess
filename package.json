@@ -1,0 +1,10 @@
+{
+  "name": "aurora-static-presence",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && node server.js",
+    "test:booking": "node --test booking/booking-core.test.mjs"
+  }
+}

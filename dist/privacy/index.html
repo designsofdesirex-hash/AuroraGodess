@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="How the static website handles entry choices and booking drafts.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AuroraGodess — Official Website">
+  <meta property="og:description" content="I set the tone.">
+  <meta property="og:image" content="/assets/images/aurora-share.png">
+  <meta name="robots" content="index,follow">
+  <title>Privacy — AuroraGodess</title>
+  <link rel="icon" href="/assets/aurora-monogram.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+
+</head>
+<body>
+  <div id="app" class="app-shell" aria-live="off">
+    <main id="entry-shell" class="entry-screen surface-dark" aria-labelledby="entry-title">
+      <a class="entry-wordmark" href="/" aria-label="Aurora — Home"><img src="/assets/aurora-wordmark.svg" alt="" width="168" height="28"></a>
+      <div class="entry-content">
+        <h1 id="entry-title">Before you enter.</h1>
+        <p>This website is for adults aged 18 and over.</p>
+        <label class="entry-check"><input id="adult-entry-choice" type="checkbox"><span>I confirm that I am 18 or older and choose to continue.</span></label>
+        <div class="entry-actions">
+          <button id="enter-aurora" class="action action-primary action-mobile-full" type="button" disabled>Enter Aurora’s world <span class="arrow" aria-hidden="true">→</span></button>
+          <a class="action action-secondary action-mobile-full" href="/exit">Leave this site</a>
+        </div>
+        <a class="entry-privacy" href="/privacy">Privacy</a>
+      </div>
+    </main>
+  </div>
+  <noscript>
+    <div class="noscript-note">Enable JavaScript to enter this website and prepare a request. <a href="/privacy">Privacy</a> · <a href="/exit">Leave this site</a></div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1018 @@
+{
+  "schemaVersion": 1,
+  "originalsIncluded": false,
+  "publishedManifestRule": "Emit only ownerApproved=true, published=true, assigned derivative paths; no private source paths or draft records.",
+  "assets": [
+    {
+      "id": "heroPortrait",
+      "role": "hero",
+      "type": "image",
+      "category": null,
+      "order": 0,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/heroPortrait-1200.webp",
+      "mobileSrc": "/assets/images/heroPortrait-mobile-768.webp",
+      "viewerSrc": "/assets/images/heroPortrait-viewer.webp",
+      "posterSrc": null,
+      "width": 1200,
+      "height": 1400,
+      "variants": [
+        {
+          "src": "/assets/images/heroPortrait-480.webp",
+          "width": 480,
+          "height": 560,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/heroPortrait-768.webp",
+          "width": 768,
+          "height": 896,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/heroPortrait-1200.webp",
+          "width": 1200,
+          "height": 1400,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/heroPortrait-1600.webp",
+          "width": 1600,
+          "height": 1867,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [
+        {
+          "src": "/assets/images/heroPortrait-mobile-480.webp",
+          "width": 480,
+          "height": 600,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/heroPortrait-mobile-768.webp",
+          "width": 768,
+          "height": 960,
+          "type": "image/webp"
+        }
+      ],
+      "alt": "Aurora seated in black stockings and platform heels in a mirror portrait.",
+      "caption": "",
+      "frameRatioDesktop": "6:7",
+      "frameRatioMobile": "4:5",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 48
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 43
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "introPortrait",
+      "role": "intro",
+      "type": "image",
+      "category": null,
+      "order": 0,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/introPortrait-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/introPortrait-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1000,
+      "variants": [
+        {
+          "src": "/assets/images/introPortrait-400.webp",
+          "width": 400,
+          "height": 500,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/introPortrait-800.webp",
+          "width": 800,
+          "height": 1000,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/introPortrait-1200.webp",
+          "width": 1200,
+          "height": 1500,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora seated in a white top and gray skirt beside leafy plants.",
+      "caption": "",
+      "frameRatioDesktop": "4:5",
+      "frameRatioMobile": "4:5",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 38
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 38
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "galleryLead",
+      "role": "gallery-lead",
+      "type": "image",
+      "category": "portraits",
+      "order": 0,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/galleryLead-1200.webp",
+      "mobileSrc": "/assets/images/galleryLead-mobile-768.webp",
+      "viewerSrc": "/assets/images/galleryLead-viewer.webp",
+      "posterSrc": null,
+      "width": 1200,
+      "height": 675,
+      "variants": [
+        {
+          "src": "/assets/images/galleryLead-768.webp",
+          "width": 768,
+          "height": 432,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/galleryLead-1200.webp",
+          "width": 1200,
+          "height": 675,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/galleryLead-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [
+        {
+          "src": "/assets/images/galleryLead-mobile-480.webp",
+          "width": 480,
+          "height": 600,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/galleryLead-mobile-768.webp",
+          "width": 768,
+          "height": 960,
+          "type": "image/webp"
+        }
+      ],
+      "alt": "Aurora reclining in blue satin and patterned stockings.",
+      "caption": "",
+      "frameRatioDesktop": "16:9",
+      "frameRatioMobile": "4:5",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 48
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 46
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery01",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 1,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery01-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery01-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery01-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery01-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery01-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Portrait of Aurora in a white top with a draped neckline.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery02",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "details",
+      "order": 2,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery02-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery02-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery02-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery02-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery02-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora seated in black heels and a gray skirt, with her legs crossed.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery03",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 3,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery03-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery03-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery03-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery03-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery03-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora taking a mirror portrait in a black outfit.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery04",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 4,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery04-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery04-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery04-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery04-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery04-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Close view of black garter stockings beneath a white robe beside a red-soled heel.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery05",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "details",
+      "order": 5,
+      "requiredForLaunch": true,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery05-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery05-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery05-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery05-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery05-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora reclining in a striped outfit, red garters and sheer stockings.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery06",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 6,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery06-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery06-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery06-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery06-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery06-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Close detail of a leg in patterned stockings and a black heel.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery07",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 7,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery07-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery07-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery07-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery07-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery07-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora posing beside a bed in dark stockings and heels.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery08",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "details",
+      "order": 8,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery08-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery08-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery08-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery08-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery08-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Close portrait of Aurora in a black top.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery09",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 9,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery09-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery09-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery09-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery09-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery09-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora in a fitted black dress and tall boots outdoors.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery10",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 10,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery10-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery10-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery10-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery10-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery10-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora reflected in a mirror in a fitted outfit.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery11",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "details",
+      "order": 11,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery11-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery11-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery11-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery11-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery11-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora seated in a patterned outfit with black strappy heels.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery12",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 12,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery12-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery12-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery12-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery12-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery12-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora in a dark top and skirt with patterned stockings.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery13",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 13,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery13-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery13-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery13-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery13-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery13-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Detail of Aurora’s waist and jewelry.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery14",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "details",
+      "order": 14,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery14-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery14-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery14-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery14-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery14-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "View of Aurora’s crossed legs in stockings beside a table.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery15",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 15,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery15-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery15-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery15-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery15-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery15-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora kneeling in red lingerie, garters and black heels.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    },
+    {
+      "id": "gallery16",
+      "role": "gallery-grid",
+      "type": "image",
+      "category": "portraits",
+      "order": 16,
+      "requiredForLaunch": false,
+      "published": true,
+      "ownerApproved": true,
+      "sourceOriginal": null,
+      "src": "/assets/images/gallery16-800.webp",
+      "mobileSrc": null,
+      "viewerSrc": "/assets/images/gallery16-viewer.webp",
+      "posterSrc": null,
+      "width": 800,
+      "height": 1067,
+      "variants": [
+        {
+          "src": "/assets/images/gallery16-400.webp",
+          "width": 400,
+          "height": 533,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery16-800.webp",
+          "width": 800,
+          "height": 1067,
+          "type": "image/webp"
+        },
+        {
+          "src": "/assets/images/gallery16-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "type": "image/webp"
+        }
+      ],
+      "mobileVariants": [],
+      "alt": "Aurora standing in shallow water, photographed from above.",
+      "caption": "",
+      "frameRatioDesktop": "3:4",
+      "frameRatioMobile": "3:4",
+      "focalPointDesktop": {
+        "x": 50,
+        "y": 50
+      },
+      "focalPointMobile": {
+        "x": 50,
+        "y": 50
+      },
+      "reviewNote": "Mapped from the supplied local Aurora media edit after visual crop review."
+    }
+  ],
+  "socialShare": {
+    "id": "socialShare",
+    "providedInPackage": "design/aurora-share.png",
+    "publicPath": "/assets/images/aurora-share.png",
+    "width": 1200,
+    "height": 630,
+    "alt": "AURORA official website",
+    "type": "brand-graphic",
+    "usesPersonPhoto": false
+  }
+}

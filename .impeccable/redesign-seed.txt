@@ -1,0 +1,113 @@
+DIRECTION CONCEPT SEED (key: 1614eff7; mode: persuade; source: api; approved pool: c3b204a1eed6; 306/564 human-approved; rerun with --scope direction --mode persuade --from 1614eff7 --candidate-count 7 to reproduce this roll against this catalog revision)
+ASSIGNED INDEX: 7
+  After ordering the grounded directions by resonance, build candidate
+  7 of your own grounded list; the assignment never points at a
+  challenger. The assignment is the roll, not a suggestion: your top-ranked
+  direction is what every run would ship, so the script decides which grounded
+  direction gets built. Each direction joins a durable visual system to a
+  concrete expression for the requested first surface, decided as one. It must
+  survive the current task plus navigation, quiet and dense content,
+  interaction and state, and a substantially different future surface. In an
+  attended run, present the assigned direction fully committed and offer
+  re-roll; never present a ranked lineup to choose from. Re-roll yourself only
+  on named factual grounds, when the assignment cannot carry the product's
+  truth or task; taste is never grounds.
+  The assignment exists to refuse the model's ranking rut, never to outrank
+  the user or the brief. Never expose assignment metadata in user-facing labels.
+CHALLENGERS:
+  1. a pickling brine calendar, where salt, acidity, spice, vegetable, vessel, temperature, and crunch mature through bright seasonal jars
+     SOURCE ID: food-fermentation-culinary-theater-pickling-brine-calendar
+     CREATIVE SPARK: Spring radishes tint one jar coral, summer cucumbers cloud another with dill, and a winter cabbage crock slowly turns ruby as bubbles climb its stone weight.
+     SYSTEM GRAMMAR:
+       - Palette/material: clear jar glass and pale brine haze as ground, radish coral and cabbage ruby as seasonal accents, dill green for fresh states, labels in kraft brown
+       - Type/composition: hand-lettered jar-label script over stamped date caps, jars ranked on shelf lines, each label banded with harvest, brine, and day count
+       - Topology/navigation: Browse jars by harvest, brine, fermentation stage, sensory change, and safe storage.
+       - Controls/state: Mix a brine, log a taste, vent or chill a vessel, and compare batches over days.
+       - Responsive/motion: Arrange jars as a vertical seasonal shelf on phones with safety thresholds stated in text.
+     WEB LEVERAGE: Batch timers, optional pH and temperature input, and photo comparison connect daily observation to safe, sensory maturation.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/food-fermentation-culinary-theater-pickling-brine-calendar.webp · hero https://impeccable.style/worlds/cards/food-fermentation-culinary-theater-pickling-brine-calendar-hero.webp
+  2. a technical deep dive down a volcanic island wall, where one small diver leaves the turquoise surface, crosses a cold blue thermocline, and enters a mesophotic garden of black coral, glass sponges, and falling marine snow
+     SOURCE ID: rivers-tides-ocean-depths-mesophotic-deep-dive
+     CREATIVE SPARK: At forty meters the last warm red drains from the diver's gloves; a lamp clicks on, revealing black-coral branches and white particles falling past a wall with no visible floor.
+     SYSTEM GRAMMAR:
+       - Palette/material: abyssal ink blue deepening by dive stage as the ground, chalk-white marine snow as particle texture, one thermocline cyan band marking the active depth
+       - Type/composition: monospaced dive-computer digits for depth and gas beside quiet grotesk notes, one vertical depth axis ruling every line of copy
+       - Topology/navigation: Descend through surface, thermocline, reef ledge, mesophotic wall, turnaround depth, ascent stops, and the vertical route home.
+       - Controls/state: Descend, hover, illuminate, mark, turn, and ascend with daylight, cooling, dark, gas-limited, decompression, and surfaced states.
+       - Responsive/motion: Pair the vertical dive profile with selected close views; stop drift and bubbles under
+     WEB LEVERAGE: A synchronized depth-and-time scrub can change light, color, sound, species, and ascent obligations together, while any observation remains pinned to its exact depth and dive phase.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/rivers-tides-ocean-depths-mesophotic-deep-dive.webp · hero https://impeccable.style/worlds/cards/rivers-tides-ocean-depths-mesophotic-deep-dive-hero.webp
+  3. an interactive type specimen, where dragging an axis slider morphs a whole grid of glyphs in real time
+     SOURCE ID: variable-font-specimen
+     CREATIVE SPARK: A single giant letter fills the screen. You drag the weight slider and it thickens from hairline to black under your finger, live. Below, a grid of every glyph breathes in step, and a monospace readout counts the axis values.
+     SYSTEM GRAMMAR:
+       - Palette/material: Near-white paper and ink black with one foundry accent; flat surfaces, generous negative space, no ornament so the letterforms carry everything.
+       - Type/composition: The specimen face at enormous display size against tiny monospace UI labels; a strict measure and baseline grid; hierarchy by scale contrast alone.
+       - Topology/navigation: Move by axis slider, by glyph cell, and by size and specimen view.
+       - Controls/state: Drag, type, and pin; moving an axis remaps every glyph on the page continuously and updates the live coordinate readout.
+       - Responsive/motion: reduced-motion snaps between named instances instead of animating the interpolation.
+     WEB LEVERAGE: Bind range inputs to CSS font-variation-settings through a custom property, so one slider drives font-variation across the entire glyph grid with no per-glyph JavaScript.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/variable-font-specimen.webp · hero https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp
+  4. A film cutting bench flattened into a sheet: a perforated select rail crossing a grain-orange field, each step a punched frame held between two pins, the place you stopped marked by a folded tape flag, and everything set aside still hanging on pins below the rail.
+     SOURCE ID: operate-a-cutting-bench-select-rail
+     CREATIVE SPARK: A work print strung between two pins under a bench lamp, white grease crosses struck across three frames, a folded orange tape flag doubled over the perforation where the editor stopped, and a dozen trims hanging on pins in the bin below.
+     SYSTEM GRAMMAR:
+       - Palette/material: one ink, flag orange in coarse film grain on true black; orange holds a third of any screen. Running copy and foreign images sit only in punched white windows.
+       - Type/composition: one size of condensed grotesk throughout, caps for labels; rank is cell count not size, a window may span twelve frame cells while edge ticks stay hairline.
+       - Topology/navigation: a perforated rail crosses every sheet at a fixed height; sections string along it as frames, and anything set aside hangs below on pins in an open bin.
+       - Controls/state: state is a mark, not a hue: grease cross done, punched corner unavailable, tape band committed, folded flag where you stopped, hung on a pin deferred.
+       - Responsive/motion: the strip scrubs with inertia and settles on perforation pitch, never between frames; hung trims swing and damp. Narrow screens drop frame count, not size.
+     WEB LEVERAGE: The rail is one virtual strip whose scrub snaps to a fixed frame pitch; the frame you left is persisted and re-flagged on return, and every discarded frame stays reachable on a pin below the rail.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail.webp · hero https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail-hero.webp
+  5. a celestial star atlas chart, magnitudes as ranked dot sizes on a coordinate sphere, constellation lines and mythic figures faint beneath the data
+     SOURCE ID: notation-diagram-systems-star-atlas
+     CREATIVE SPARK: Under a red flashlight at two in the morning, a cold thumb traces from the chart's inked dots up to the actual sky, and Orion's belt agrees with the paper exactly.
+     SYSTEM GRAMMAR:
+       - Palette/material: deep navy chart ground with chalk-white stars, red-flashlight amber for annotations, the object under the eye ringed in that same night-vision red
+       - Type/composition: light serif italic names the constellations, small tabular figures label coordinates, dot diameter carries the hierarchy the type declines to
+       - Topology/navigation: the sky splits into overlapping charts with matched edges, coordinates gridline the field and an index of named objects points into each plate
+       - Controls/state: importance is dot diameter on a fixed magnitude ramp, variable objects wear distinct rings, the mythic figure layer fades up only on request
+       - Responsive/motion: each plate crops around its brightest anchors at small sizes; panning drifts like slow sidereal motion
+     WEB LEVERAGE: Canvas plots thousands of magnitude-scaled points with smooth zoom between chart plates.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas.webp · hero https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas-hero.webp
+  6. a broadcast signal degrading on purpose, colour bars and an alert tone card interrupted by tracking noise, timecode burned into the corner and a warning crawl that keeps repeating with one word changed
+     SOURCE ID: digital-design-canon-emergency-signal-degradation
+     CREATIVE SPARK: colour bars, a tone, and a card that says please stand by, except the timecode in the corner is running backwards and the crawl at the bottom changed one word since the last time you looked at it.
+     SYSTEM GRAMMAR:
+       - Palette/material: broadcast bar primaries over a near-black field, chroma bleeding sideways, tape noise banding across the lower third
+       - Type/composition: a monospaced timecode locked to one corner, centered alert caps on a solid card, and a single-line crawl pinned to the foot
+       - Topology/navigation: the world is a channel, so navigation is tuning between cards, and each card asserts it is the only broadcast left
+       - Controls/state: controls are channel steps, an active one locks signal and clears noise, and an unavailable one drops into rolling static
+       - Responsive/motion: bars and crawl hold their proportion at any width, and motion is a vertical roll with a horizontal tracking tear
+     WEB LEVERAGE: a webgl tracking-tear shader, canvas noise banding, and a live timecode state that drives the crawl
+     QUALITY BAR: board https://impeccable.style/worlds/cards/digital-design-canon-emergency-signal-degradation.webp · hero https://impeccable.style/worlds/cards/digital-design-canon-emergency-signal-degradation-hero.webp
+Fuse each challenger before judging it: the challenger supplies the form
+  and its system grammar, the product supplies every fact, and clarity wins
+  conflicts. Weigh the fused result against the assigned direction on exactly
+  two axes, audience identification and product clarity. Losing to strong
+  grounded material is a valid outcome; beating a thin or tool-monoculture
+  list is the point. A fused challenger that wins both axes becomes the build.
+When you can view images, open the QUALITY BAR board and hero for any
+challenger you weigh seriously and for the world you build. They exist as a
+craft bar, the finish level and commitment the build is expected to reach,
+never as a mockup to copy; your surface serves this product, not that render.
+PRODUCT.md and explicit incumbent brand commitments constrain every direction.
+The seed never chooses exact colors, fonts, tokens, or a user preference, and
+it never permits the world and first surface to be selected independently.
+The CREATIVE SPARK is a complete visual system, not a theme or decorative
+reference. Translate every supplied system rule into the product: palette and
+material, type and composition, topology, controls and states, and adaptation.
+Keep the source's visible character, scale, rhythm, and interaction instead of
+reducing vivid grammar to generic nouns. When the source is already a credible
+interface language, commit to it across navigation, content, controls, and
+states. Otherwise keep a literal carrier only when it becomes functional.
+Ambitious motion, spatial media, or interaction is welcome when it strengthens
+the product without weakening semantics, performance, or fallback behavior.
+TELEMETRY: if the resolved direction uses one of these challengers, rerun
+  this script once with --chosen <challenger-id> --from 1614eff7 --scope direction --mode persuade
+  after resolution. The ping is anonymous (chosen id only) and is skipped
+  automatically when DO_NOT_TRACK or IMPECCABLE_NO_TELEMETRY is set.
+A user- or brief-pinned decision beats the roll, always.
+ASSIGNED INDEX (restated for truncated readers): 7. Build candidate
+7 of your own grounded list; seed key 1614eff7.
+Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 94
