@@ -112,7 +112,7 @@ function photoFrame(id, { className = '', priority = false, button = false, rati
   const img = `<picture${rotator ? ' class="hero-slide is-active" data-hero-slot aria-hidden="false"' : ''}>${asset.mobileVariants?.length ? `<source media="(max-width: 699px)" srcset="${srcset(asset.mobileVariants)}" sizes="100vw">` : ''}<img src="${esc(asset.src)}"${asset.variants?.length ? ` srcset="${srcset(asset.variants)}" sizes="(max-width: 699px) 100vw, 50vw"` : ''} alt="${esc(asset.alt)}" width="${asset.width}" height="${asset.height}" loading="${priority ? 'eager' : 'lazy'}" decoding="async" style="object-position:${focal.x}% ${focal.y}%"${priority ? ' fetchpriority="high"' : ''}></picture>`;
   const rotateMarkup = rotator ? `<picture class="hero-slide" data-hero-slot aria-hidden="true"></picture><button class="icon-action hero-rotator-toggle" type="button" aria-label="Pause hero photo rotation" aria-pressed="false">${pauseIcon}</button>` : '';
   const inner = `${placeholder}${img}${rotateMarkup}<span class="photo-error" hidden>${esc(copy.media.error)} <button type="button" class="retry-photo">${esc(copy.shared.retry)}</button></span>`;
-  return `<figure class="photo-frame ${className}" data-asset-id="${esc(id)}"${rotator ? ' data-hero-rotator' : ''}${style}>${button ? `<button class="photo-open" type="button" data-open-asset="${esc(id)}" aria-label="${esc(copy.gallery.openImage)}: ${esc(asset.alt)}">${inner}</button>` : inner}${asset.caption ? `<figcaption>${esc(asset.caption)}</figcaption>` : ''}</figure>`;
+  return `<figure class="photo-frame ${className}" data-asset-id="${esc(id)}"${rotator ? ' data-hero-rotator' : ''}${style}>${button ? `<button class="photo-open" type="button" data-open-asset="${esc(id)}">${inner}</button>` : inner}${asset.caption ? `<figcaption>${esc(asset.caption)}</figcaption>` : ''}</figure>`;
 }
 
 function homePage() {
@@ -135,7 +135,7 @@ function homePage() {
 function destinationPanel(id) {
   const destination = site.links.find(item => item.id === id); const text = getCopy(destination.labelKey);
   const theme = id === 'throne' ? 'destination-card--blush' : 'destination-card--outline';
-  return `<a class="destination-card ${theme}" href="${esc(destination.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(text.accessibleName)}"><span class="eyebrow">${esc(text.eyebrow)}</span><h3>${esc(text.title)}</h3><p>${esc(text.body)}</p><span class="text-action">${esc(text.action)} ${arrow}</span></a>`;
+  return `<a class="destination-card ${theme}" href="${esc(destination.url)}" target="_blank" rel="noopener noreferrer"><span class="eyebrow">${esc(text.eyebrow)}</span><h3>${esc(text.title)}</h3><p>${esc(text.body)}</p><span class="text-action">${esc(text.action)} ${arrow}</span></a>`;
 }
 
 function stickyAction() { return `<div class="sticky-booking" id="sticky-booking" hidden>${action('/booking', copy.nav.booking)}</div>`; }
