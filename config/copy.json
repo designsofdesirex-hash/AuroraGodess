@@ -17,7 +17,7 @@
     "home": "Home",
     "gallery": "Gallery",
     "links": "Official links",
-    "booking": "Request my time",
+    "booking": "Booking request",
     "bookingActive": "Booking",
     "privacy": "Privacy",
     "policies": "Booking information"
@@ -30,8 +30,8 @@
         "I set",
         "the tone."
       ],
-      "body": "Step into my world. Explore the gallery, find my official pages, or request my time.",
-      "primary": "Request my time",
+      "body": "Step into my world. Explore the gallery, find my official pages, or make a booking request.",
+      "primary": "Request a booking",
       "secondary": "Explore the gallery",
       "mobileEyebrowLines": [
         "Queen Aurora · Official website",
@@ -51,8 +51,8 @@
     },
     "booking": {
       "eyebrow": "By request",
-      "heading": "Request my time.",
-      "body": "Share your preferred timing and a few details. Prepare your request here, then send it to me by email.",
+      "heading": "Make a booking request.",
+      "body": "Share your preferred date and a few details. Prepare your request here, then send it to me by email.",
       "action": "Start a booking request",
       "steps": [
         "Share your details",
@@ -67,15 +67,15 @@
     },
     "close": {
       "heading": "Make your next move.",
-      "body": "The gallery is here. My official pages are ready. My time starts with a request.",
-      "action": "Request my time"
+      "body": "The gallery is here. My official pages are ready. Start with a booking request.",
+      "action": "Request a booking"
     }
   },
   "booking": {
     "eyebrow": "Your next move",
-    "heading": "Request my time.",
-    "body": "Share your details and preferred timing. Review your request, then open your email app to send it to me.",
-    "preferenceNotice": "Your timing is a preference. Preparing a request does not reserve a time or confirm a booking.",
+    "heading": "Make a booking request.",
+    "body": "Share your details and preferred date. Review your request, then open your email app to send it to me.",
+    "preferenceNotice": "Your preferred date is a request, not a reservation or booking confirmation.",
     "steps": [
       "Details",
       "Review",
@@ -85,10 +85,10 @@
     "offeringHeading": "Choose your request.",
     "aside": {
       "heading": "A considered request.",
-      "body": "Keep the details clear. Your email and timezone help me understand what you have in mind.",
+      "body": "Keep the details clear. Your email and preferred date help me understand what you have in mind.",
       "lines": [
         "Pricing is in USD.",
-        "Timing is requested, not reserved.",
+        "Dates are requested, not reserved.",
         "A booking needs my confirmation."
       ],
       "action": "Read booking information"
@@ -109,14 +109,6 @@
         "label": "Preferred date (required)",
         "helper": "This is your preference, not a confirmed date."
       },
-      "preferredTime": {
-        "label": "Preferred time (required)",
-        "helper": "Use the local time in your selected timezone."
-      },
-      "timezone": {
-        "label": "Timezone (required)",
-        "placeholder": "Choose your timezone"
-      },
       "note": {
         "label": "A short note (optional)",
         "placeholder": "What would you like to arrange?",
@@ -135,14 +127,12 @@
     "prepare": "Prepare my request",
     "review": {
       "heading": "Check the details.",
-      "body": "Make sure your email, local time and timezone are correct before you prepare your request.",
+      "body": "Make sure your email and preferred date are correct before you prepare your request.",
       "alias": "Name / alias",
       "email": "Reply email",
       "offering": "Request",
       "generalRequest": "General request",
       "date": "Preferred date",
-      "time": "Preferred time",
-      "timezone": "Timezone",
       "price": "Pricing",
       "note": "Note",
       "noNote": "No additional note.",
@@ -157,12 +147,11 @@
       "requestTextLabel": "Your prepared request",
       "email": "Open email to send",
       "copy": "Copy request",
-      "download": "Download .txt",
       "startAgain": "Start again",
       "copied": "Copied.",
       "copyFallback": "Select and copy the request text below, then paste it into your email.",
-      "noEmail": "Email is unavailable here. You can still copy or download your request.",
-      "longEmail": "This message is too long to open reliably in an email app. Copy or download it and send it to the address below.",
+      "noEmail": "Email is unavailable here. You can still copy your request.",
+      "longEmail": "This message is too long to open reliably in an email app. Copy it and send it to the address below.",
       "leavingNotice": "Leaving or refreshing this page clears your draft."
     },
     "quotePrice": "Pricing confirmed by email · USD",
@@ -176,8 +165,8 @@
         "answer": "All booking prices are in USD. If a price is not listed, it will be agreed by email."
       },
       {
-        "question": "Can I choose an available time?",
-        "answer": "Choose your preferred local date and time, and include your timezone. Availability is agreed in the reply; this site does not show a live calendar."
+        "question": "Can I choose an available date?",
+        "answer": "You can request a preferred date. Availability is agreed in the reply; this site does not show a live calendar."
       }
     ]
   },
@@ -186,9 +175,7 @@
     "alias": "Enter a name or alias of up to 60 characters.",
     "email": "Enter a valid email address so I can reply.",
     "offeringId": "Choose a request option.",
-    "preferredDate": "Choose a valid date that is not in the past in your selected timezone.",
-    "preferredTime": "Choose a valid local time that is not in the past today.",
-    "timezone": "Choose a valid timezone.",
+    "preferredDate": "Choose a valid date that is today or later.",
     "note": "Keep your note to 1,000 characters and use plain text.",
     "adult": "Confirm that you are 18 or older to continue.",
     "policy": "Read and acknowledge the booking information to continue."
@@ -211,7 +198,7 @@
     "emptyFilter": "No images in this selection yet.",
     "resetFilter": "View all images",
     "close": "A glimpse is only the beginning.",
-    "bookingAction": "Request my time",
+    "bookingAction": "Request a booking",
     "creatorAction": "Visit my LoyalFans"
   },
   "media": {
@@ -279,8 +266,8 @@
         "body": "Complete the request on this website and review your details. The final screen prepares a message. Open your email app to send it, or copy the text into your own email. This website does not send the request for you."
       },
       {
-        "heading": "Timing and confirmation",
-        "body": "The date and time you choose are preferences. They are not reserved. A request, gift or subscription does not confirm a booking. Wait for my personal confirmation before making plans."
+        "heading": "Date and confirmation",
+        "body": "The date you choose is a preference. It is not reserved. A request, gift or subscription does not confirm a booking. Wait for my personal confirmation before making plans."
       },
       {
         "heading": "Pricing in USD",
@@ -288,7 +275,7 @@
       },
       {
         "heading": "Keep the request simple",
-        "body": "Use a name or alias, a working reply email and your timezone. Do not include payment credentials or identity documents in the note."
+        "body": "Use a name or alias, a working reply email and your preferred date. Do not include payment credentials or identity documents in the note."
       },
       {
         "heading": "Adults only",
@@ -315,8 +302,8 @@
         "body": "If you choose Open email to send, your email app receives the prepared message. You decide whether to send it. Email handling and retention then follow your email provider and the recipient’s correspondence process; this website cannot observe delivery."
       },
       {
-        "heading": "Copy and download",
-        "body": "Copy places the request on your clipboard when your browser allows it. Download creates a text file on your device. Both actions are chosen by you."
+        "heading": "Copying your request",
+        "body": "Copy places the request on your clipboard when your browser allows it. Copying does not send the request."
       },
       {
         "heading": "Other platforms",

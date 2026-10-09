@@ -2,14 +2,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   formatUsd, prepareRequest, validateDraft, validateOfferConfig,
-  nowInTimezone, emailHandoff, isValidDate, isValidTime, copyRequestText, downloadRequestText
+  emailHandoff, isValidDate, copyRequestText
 } from './booking-core.mjs';
 
 const config = { currency: 'USD', booking: { mode: 'static-request', offers: [] } };
-const now = new Date('2026-10-09T23:30:00Z');
+const now = new Date(2026, 9, 9, 23, 30);
 const draft = {
   alias: 'Example visitor', email: 'visitor@example.invalid', offeringId: null,
-  preferredDate: '2026-10-11', preferredTime: '15:00', timezone: 'UTC',
+  preferredDate: '2026-10-11',
   note: 'Please reply with the details.', adult: true, policy: true
 };
 const fixedOffer = {
@@ -24,13 +24,12 @@ test('approved integer cents format as USD; null and invalid numbers never becom
   for (const invalid of [null, undefined, -1, 12.5, NaN, '12345']) assert.throws(() => formatUsd(invalid));
 });
 
-test('calendar validity covers leap years and impossible dates', () => {
+test('calendar validity covers leap years, impossible dates and past-date rejection', () => {
   assert.equal(isValidDate('2028-02-29'), true);
   for (const invalid of ['2026-02-29','2026-04-31','2026-13-01','2026-10-00','10/09/2026'])
     assert.equal(isValidDate(invalid), false);
-  assert.equal(isValidTime('00:00'), true);
-  assert.equal(isValidTime('23:59'), true);
-  assert.equal(isValidTime('24:00'), false);
+  assert.equal(validateDraft({...draft,preferredDate:'2026-10-08'},config,now).errors.preferredDate,'errors.preferredDate');
+  assert.equal(validateDraft({...draft,preferredDate:'2026-10-09'},config,now).valid,true);
 });
 
 test('empty catalogue prepares a quote request with no invented dollar rate', () => {
@@ -43,18 +42,10 @@ test('empty catalogue prepares a quote request with no invented dollar rate', ()
 });
 
 test('all required fields fail together and leave valid entered text available for correction', () => {
-  const result = validateDraft({ ...draft, alias:'', email:'wrong', preferredDate:'', preferredTime:'', timezone:'wrong', adult:false, policy:false },config,now);
+  const result = validateDraft({ ...draft, alias:'', email:'wrong', preferredDate:'', adult:false, policy:false },config,now);
   assert.equal(result.valid, false);
-  assert.deepEqual(Object.keys(result.errors).sort(), ['adult','alias','email','policy','preferredDate','preferredTime','timezone'].sort());
+  assert.deepEqual(Object.keys(result.errors).sort(), ['adult','alias','email','policy','preferredDate'].sort());
   assert.equal(result.draft.note, draft.note);
-});
-
-test('timezone comparison uses visitor local date near midnight, not UTC or the machine zone', () => {
-  assert.deepEqual(nowInTimezone('Asia/Tokyo', now), { date:'2026-10-10', time:'08:30' });
-  assert.deepEqual(nowInTimezone('America/Los_Angeles', now), { date:'2026-10-09', time:'16:30' });
-  assert.equal(validateDraft({...draft,preferredDate:'2026-10-09',preferredTime:'23:00',timezone:'Asia/Tokyo'},config,now).valid,false);
-  assert.equal(validateDraft({...draft,preferredDate:'2026-10-09',preferredTime:'17:00',timezone:'America/Los_Angeles'},config,now).valid,true);
-  assert.equal(validateDraft({...draft,preferredDate:'2026-10-09',preferredTime:'16:29',timezone:'America/Los_Angeles'},config,now).errors.preferredTime,'errors.preferredTime');
 });
 
 test('unknown/unpublished offer IDs do not acquire a price or pass review', () => {
@@ -73,10 +64,11 @@ test('quote, malformed fixed pricing and non-USD/mode configurations are explici
   assert.ok(validateOfferConfig({...config,booking:{...config.booking,mode:'live'}}).length);
 });
 
-test('multiline notes are plain text and request fields remain explicit local values', () => {
+test('multiline notes stay plain text and the request includes the preferred date', () => {
   const result=prepareRequest({...draft,note:'First line\r\nSecond <line> & details.'},config,now);
   assert.match(result.body,/First line\nSecond <line> & details\./);
-  assert.match(result.body,/Preferred date: 2026-10-11\nPreferred time: 15:00\nTimezone: UTC/);
+  assert.match(result.body,/Preferred date: 2026-10-11\nPricing:/);
+  assert.doesNotMatch(result.body,/Preferred time|Timezone:/);
   assert.equal(validateDraft({...draft,note:'a'.repeat(1001)},config,now).errors.note,'errors.note');
   assert.equal(validateDraft({...draft,alias:'name\nBcc: unwanted'},config,now).valid,false);
 });
@@ -94,7 +86,6 @@ test('mailto encodes recipient, subject and text; no cc/bcc; long or missing rec
   assert.equal(emailHandoff('owner@example.invalid',subject,'é'.repeat(1000)).code,'too-long');
 });
 
-test('unsupported clipboard/download environments produce manual-copy fallback rather than success', async () => {
+test('unsupported clipboard environments produce manual-copy fallback rather than success', async () => {
   assert.equal((await copyRequestText('text')).code,'manual-copy');
-  assert.equal(downloadRequestText('text').code,'manual-copy');
 });

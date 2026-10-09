@@ -91,9 +91,6 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translateX(3px); }
 .hero-photo img { object-position: 50% 48%; }
 .hero-photo picture.hero-slide { opacity: 0; transition: opacity 640ms cubic-bezier(.23,1,.32,1); }
 .hero-photo picture.hero-slide.is-active { opacity: 1; }
-.hero-rotator-toggle { position: absolute; z-index: 4; right: 16px; bottom: 16px; background: var(--lacquer); color: var(--pearl); }
-.hero-rotator-toggle:hover { background: var(--pearl); color: var(--lacquer); }
-.hero-rotator-toggle:active { transform: scale(.97); }
 .hero-photo-label { position: absolute; left: 50%; bottom: 48px; font-size: 12px; letter-spacing: .1em; }
 .mobile-eyebrow { display: none; }
 @keyframes hero-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -372,7 +369,6 @@ textarea.form-control { min-height: 144px; resize: vertical; }
   .hero-actions .action { width: 100%; }
   .hero-actions .text-action { align-self: flex-start; }
   .hero-photo { min-height: 0; height: auto; aspect-ratio: 4 / 5; }
-  .hero-rotator-toggle { right: 12px; bottom: 12px; }
   .hero-photo-label { display: none; }
   .intro-grid { display: flex; flex-direction: column; align-items: stretch; gap: 32px; }
   .intro-copy { padding: 0; }

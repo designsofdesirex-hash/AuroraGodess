@@ -2,18 +2,10 @@
 export const CURRENCY = 'USD';
 export const MAILTO_URI_BUDGET = 1800;
 export const GENERAL_PRICE_TEXT = 'Pricing confirmed by email · USD';
-export const FALLBACK_TIMEZONES = Object.freeze([
-  'UTC', 'Africa/Casablanca', 'Africa/Johannesburg', 'America/Anchorage',
-  'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/New_York',
-  'America/Phoenix', 'America/Sao_Paulo', 'America/Toronto', 'Asia/Dubai',
-  'Asia/Hong_Kong', 'Asia/Kolkata', 'Asia/Singapore', 'Asia/Tokyo',
-  'Australia/Sydney', 'Europe/Berlin', 'Europe/London', 'Europe/Paris', 'Pacific/Auckland'
-]);
 
 export const ERROR_KEYS = Object.freeze({
   alias: 'errors.alias', email: 'errors.email', offeringId: 'errors.offeringId',
-  preferredDate: 'errors.preferredDate', preferredTime: 'errors.preferredTime',
-  timezone: 'errors.timezone', note: 'errors.note', adult: 'errors.adult', policy: 'errors.policy'
+  preferredDate: 'errors.preferredDate', note: 'errors.note', adult: 'errors.adult', policy: 'errors.policy'
 });
 
 const value = v => typeof v === 'string' ? v.trim() : '';
@@ -25,22 +17,6 @@ export function isValidEmail(email) {
   return text.length <= 254 && emailPattern.test(text) && !/[\u0000-\u001f\u007f]/.test(text);
 }
 
-export function isValidTimezone(timezone) {
-  if (!value(timezone)) return false;
-  try { new Intl.DateTimeFormat('en-US', { timeZone: timezone }).format(new Date()); return true; }
-  catch { return false; }
-}
-
-export function timezoneOptions() {
-  let detected = '';
-  try { detected = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch {}
-  let zones = [...FALLBACK_TIMEZONES];
-  if (typeof Intl.supportedValuesOf === 'function') {
-    try { zones = Intl.supportedValuesOf('timeZone'); } catch {}
-  }
-  return [...new Set(['UTC', ...zones, ...(isValidTimezone(detected) ? [detected] : [])])].sort();
-}
-
 export function isValidDate(text) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value(text))) return false;
   const [year, month, day] = text.split('-').map(Number);
@@ -49,17 +25,8 @@ export function isValidDate(text) {
   return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
 }
 
-export function isValidTime(text) {
-  return /^([01]\d|2[0-3]):[0-5]\d$/.test(value(text));
-}
-
-export function nowInTimezone(timezone, now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
-  }).formatToParts(now);
-  const pick = type => parts.find(p => p.type === type)?.value;
-  return { date: `${pick('year')}-${pick('month')}-${pick('day')}`, time: `${pick('hour')}:${pick('minute')}` };
+function localDate(now) {
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
 export function publishedOffers(config) {
@@ -90,8 +57,7 @@ export function validateOfferConfig(config) {
 export function normalizeDraft(draft = {}) {
   return {
     alias: value(draft.alias), email: value(draft.email), offeringId: value(draft.offeringId) || null,
-    preferredDate: value(draft.preferredDate), preferredTime: value(draft.preferredTime),
-    timezone: value(draft.timezone), note: value(draft.note).replace(/\r\n?/g, '\n'),
+    preferredDate: value(draft.preferredDate), note: value(draft.note).replace(/\r\n?/g, '\n'),
     adult: draft.adult === true, policy: draft.policy === true
   };
 }
@@ -103,15 +69,7 @@ export function validateDraft(draft, config, now = new Date()) {
   if (!isValidEmail(d.email)) errors.email = ERROR_KEYS.email;
   const offers = publishedOffers(config);
   if (offers.length && !offers.some(o => o.id === d.offeringId)) errors.offeringId = ERROR_KEYS.offeringId;
-  if (!isValidTimezone(d.timezone)) errors.timezone = ERROR_KEYS.timezone;
-  if (!isValidDate(d.preferredDate)) errors.preferredDate = ERROR_KEYS.preferredDate;
-  if (!isValidTime(d.preferredTime)) errors.preferredTime = ERROR_KEYS.preferredTime;
-  if (!errors.timezone && !errors.preferredDate) {
-    const current = nowInTimezone(d.timezone, now);
-    if (d.preferredDate < current.date) errors.preferredDate = ERROR_KEYS.preferredDate;
-    if (!errors.preferredTime && d.preferredDate === current.date && d.preferredTime < current.time)
-      errors.preferredTime = ERROR_KEYS.preferredTime;
-  }
+  if (!isValidDate(d.preferredDate) || d.preferredDate < localDate(now)) errors.preferredDate = ERROR_KEYS.preferredDate;
   if (d.note.length > 1000 || /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(d.note)) errors.note = ERROR_KEYS.note;
   if (!d.adult) errors.adult = ERROR_KEYS.adult;
   if (!d.policy) errors.policy = ERROR_KEYS.policy;
@@ -138,11 +96,10 @@ export function prepareRequest(draft, config, now = new Date()) {
   const offer = publishedOffers(config).find(o => o.id === d.offeringId);
   const subject = `Booking request — ${singleLine(d.alias)}`;
   const body = [
-    'Hello Aurora,', '', "I'd like to request your time.", '',
+    'Hello Aurora,', '', "I'd like to make a booking request.", '',
     `Name / alias: ${singleLine(d.alias)}`, `Reply email: ${d.email}`,
     `Request: ${singleLine(offer?.title || 'General request')}`,
-    `Preferred date: ${d.preferredDate}`, `Preferred time: ${d.preferredTime}`,
-    `Timezone: ${d.timezone}`, `Pricing: ${pricingText(offer)}`, '', 'Note:',
+    `Preferred date: ${d.preferredDate}`, `Pricing: ${pricingText(offer)}`, '', 'Note:',
     d.note || 'No additional note.', '', 'I confirm that I am 18 or older.',
     'I understand that this is a request and that no booking is confirmed.',
     'Please reply with the next steps.'
@@ -164,23 +121,4 @@ export async function copyRequestText(text) {
     await globalThis.navigator.clipboard.writeText(text);
     return { ok: true };
   } catch { return { ok: false, code: 'manual-copy' }; }
-}
-
-export function downloadRequestText(text) {
-  if (!globalThis.document || !globalThis.URL?.createObjectURL || !globalThis.Blob)
-    return { ok: false, code: 'manual-copy' };
-  let url;
-  let anchor;
-  try {
-    url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
-    anchor = document.createElement('a');
-    anchor.href = url; anchor.download = 'aurora-booking-request.txt'; anchor.hidden = true;
-    document.body.append(anchor); anchor.click(); anchor.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    return { ok: true }; // File creation initiated, never email or delivery confirmation.
-  } catch {
-    anchor?.remove();
-    if (url) URL.revokeObjectURL(url);
-    return { ok: false, code: 'manual-copy' };
-  }
 }

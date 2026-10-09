@@ -42,8 +42,8 @@
     {
       "path": "/booking",
       "output": "booking/index.html",
-      "title": "Request My Time — Queen Aurora",
-      "description": "Prepare a booking request for Aurora with your preferred timing. Pricing is in USD; requests require a personal reply.",
+      "title": "Booking Request — Queen Aurora",
+      "description": "Prepare a booking request for Aurora with your preferred date. Pricing is in USD; requests require a personal reply.",
       "noindex": true
     },
     {
@@ -89,8 +89,7 @@
     "generalPriceText": "Pricing confirmed by email · USD",
     "mailtoUriBudget": 1800,
     "noteMaxLength": 1000,
-    "aliasMaxLength": 60,
-    "downloadFilename": "aurora-booking-request.txt"
+    "aliasMaxLength": 60
   },
   "gallery": {
     "initialGridCount": 8,

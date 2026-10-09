@@ -14,7 +14,7 @@ Plain HTML, CSS, and JavaScript. `npm run build` creates seven prerendered route
 
 ## Checks
 
-Run the supplied booking rules with `npm run test:booking` (`node --test booking/booking-core.test.mjs`). This checks the USD formatter, empty quote pricing, calendar/timezone rules, offers, message formatting, and email URI handling.
+Run the supplied booking rules with `npm run test:booking` (`node --test booking/booking-core.test.mjs`). This checks the USD formatter, empty quote pricing, date validation, offers, message formatting, and email URI handling.
 
 ## Content and media
 
@@ -25,6 +25,6 @@ Run the supplied booking rules with `npm run test:booking` (`node --test booking
 - Responsive WebP crop generation: `scripts/prepare-assets.py`
 - Booking validation and request generation: `booking/booking-core.mjs`
 
-The static preview intentionally has no real booking recipient or final domain. Email handoff is disabled until `config/site.json → booking.contactEmail` is filled with the real address; request copy and download still work. No service, price, availability, or confirmation is invented. USD is fixed.
+The static preview intentionally has no real booking recipient or final domain. Email handoff is disabled until `config/site.json → booking.contactEmail` is filled with the real address; visitors can copy the prepared request. No service, price, availability, or confirmation is invented. USD is fixed.
 
 The final domain belongs in `config/site.json → siteUrl`. Production build validation also requires real booking contact information and required approved image assignments. Confirm the Cash App and YouPay recipient identities before public launch.

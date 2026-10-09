@@ -18,7 +18,7 @@ The Home page moves through six editorial sections: a split portrait opening, a 
 
 ## Interaction
 
-Booking stays in the browser: Details → Review → Ready to send. Values are not persisted or submitted to the website. Email, copy, and text download are visitor-controlled handoffs. Gallery reveals eight items at a time and supports filtering, keyboard navigation, touch swipe, and native video only when a published motion asset is assigned. Reduced-motion preference removes authored transitions.
+Booking stays in the browser: Details → Review → Ready to send. Values are not persisted or submitted to the website. The visitor can request a date, then choose whether to open email or copy the prepared message. Gallery reveals eight items at a time and supports filtering, keyboard navigation, touch swipe, and native video only when a published motion asset is assigned. Reduced-motion preference removes authored transitions.
 
 ## Boundaries
 

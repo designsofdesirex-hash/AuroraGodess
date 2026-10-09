@@ -1,12 +1,11 @@
 import {
-  downloadRequestText, emailHandoff, prepareRequest, pricingText, publishedOffers, timezoneOptions,
+  emailHandoff, prepareRequest, pricingText, publishedOffers,
   validateDraft, validateOfferConfig
 } from '/booking/booking-core.mjs';
 
 const root = document.querySelector('#app');
 const ENTRY_KEY = 'aurora:adult-entry:v1';
 const HERO_ROTATION_IDS = ['heroPortrait', 'gallery01', 'gallery03', 'gallery07', 'gallery09', 'gallery15'];
-const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>';
 const routePath = location.pathname.replace(/\/+$/, '') || '/';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 const arrow = '<svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
@@ -109,7 +108,7 @@ function photoFrame(id, { className = '', priority = false, button = false, rati
   const focal = asset.focalPointDesktop || { x: 50, y: 50 };
   const srcset = list => (list || []).map(variant => `${esc(variant.src)} ${variant.width}w`).join(', ');
   const img = `<picture${rotator ? ' class="hero-slide is-active" data-hero-slot aria-hidden="false"' : ''}>${asset.mobileVariants?.length ? `<source media="(max-width: 699px)" srcset="${srcset(asset.mobileVariants)}" sizes="100vw">` : ''}<img src="${esc(asset.src)}"${asset.variants?.length ? ` srcset="${srcset(asset.variants)}" sizes="(max-width: 699px) 100vw, 50vw"` : ''} alt="${esc(asset.alt)}" width="${asset.width}" height="${asset.height}" loading="${priority ? 'eager' : 'lazy'}" decoding="async" style="object-position:${focal.x}% ${focal.y}%"${priority ? ' fetchpriority="high"' : ''}></picture>`;
-  const rotateMarkup = rotator ? `<picture class="hero-slide" data-hero-slot aria-hidden="true"></picture><button class="icon-action hero-rotator-toggle" type="button" aria-label="Pause hero photo rotation" aria-pressed="false">${pauseIcon}</button>` : '';
+  const rotateMarkup = rotator ? `<picture class="hero-slide" data-hero-slot aria-hidden="true"></picture>` : '';
   const inner = `${placeholder}${img}${rotateMarkup}<span class="photo-error" hidden>${esc(copy.media.error)} <button type="button" class="retry-photo">${esc(copy.shared.retry)}</button></span>`;
   return `<figure class="photo-frame ${className}" data-asset-id="${esc(id)}"${rotator ? ' data-hero-rotator' : ''}${style}>${button ? `<button class="photo-open" type="button" data-open-asset="${esc(id)}">${inner}</button>` : inner}${asset.caption ? `<figcaption>${esc(asset.caption)}</figcaption>` : ''}</figure>`;
 }
@@ -246,16 +245,14 @@ function bindShared(path) {
 
 function bindHeroRotator() {
   const frame = root.querySelector('[data-hero-rotator]');
-  const toggle = frame?.querySelector('.hero-rotator-toggle');
   const slots = frame ? [...frame.querySelectorAll('[data-hero-slot]')] : [];
   const rotationAssets = HERO_ROTATION_IDS.map(id => assets.find(asset => asset.id === id && asset.type === 'image')).filter(Boolean);
-  if (!frame || !toggle || slots.length < 2 || rotationAssets.length < 2) return;
+  if (!frame || slots.length < 2 || rotationAssets.length < 2) return;
 
   let currentIndex = Math.max(0, rotationAssets.findIndex(asset => asset.id === frame.dataset.assetId));
   let activeSlot = slots.find(slot => slot.classList.contains('is-active')) || slots[0];
   let prepared = null;
   let timer = null;
-  let paused = false;
   const count = root.querySelector('[data-hero-count]');
   const initialImage = activeSlot.querySelector('img');
 
@@ -267,12 +264,7 @@ function bindHeroRotator() {
     timer = null;
   };
   const schedule = () => {
-    if (!timer && prepared && !paused && !document.hidden) timer = window.setInterval(advance, 6000);
-  };
-  const setToggleState = () => {
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.setAttribute('aria-label', paused ? 'Resume hero photo rotation' : 'Pause hero photo rotation');
-    toggle.innerHTML = paused ? playIcon() : pauseIcon;
+    if (!timer && prepared && !document.hidden) timer = window.setInterval(advance, 6000);
   };
 
   async function prepareNext(attempt = 0) {
@@ -337,12 +329,6 @@ function bindHeroRotator() {
     }, 640);
   }
 
-  toggle.addEventListener('click', () => {
-    paused = !paused;
-    if (paused) clearTimer();
-    else schedule();
-    setToggleState();
-  });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) clearTimer();
     else schedule();
@@ -352,7 +338,6 @@ function bindHeroRotator() {
     frame.querySelector('.photo-error').hidden = false;
   }, { once: true });
   updateCount();
-  setToggleState();
   prepareNext();
 }
 
@@ -416,12 +401,10 @@ function galleryTile(asset) {
 
 function bindBooking() {
   const state=root.querySelector('#booking-state'); const stepItems=[...root.querySelectorAll('.step-item')];
-  const offers=publishedOffers(site); let draft={alias:'',email:'',offeringId:null,preferredDate:'',preferredTime:'',timezone:'',note:'',adult:false,policy:false};
+  const offers=publishedOffers(site); let draft={alias:'',email:'',offeringId:null,preferredDate:'',note:'',adult:false,policy:false};
   let step='details',prepared=null,lastErrors={};
   const setStepIndicator=current=>stepItems.forEach((item,index)=>{const n=index+1;item.classList.toggle('is-complete',n<(current==='details'?1:current==='review'?2:3));item.classList.toggle('is-current',n===(current==='details'?1:current==='review'?2:3));item.removeAttribute('aria-current');if(n===(current==='details'?1:current==='review'?2:3))item.setAttribute('aria-current','step');});
-  const timezoneValues=timezoneOptions(); let detected='';try{detected=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch{}
-  const timezoneOptionsHtml=`<option value="">${esc(copy.booking.fields.timezone.placeholder)}</option>${timezoneValues.map(zone=>`<option value="${esc(zone)}"${zone===detected?' selected':''}>${esc(zone.replaceAll('_',' '))}</option>`).join('')}`;
-  if(detected && timezoneValues.includes(detected)) draft.timezone=detected;
+  const today=()=>{const now=new Date();return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;};
 
   function showDetails(focusFirst=false){
     step='details';prepared=null;setStepIndicator(step);
@@ -431,9 +414,7 @@ function bindBooking() {
       <div class="form-grid form-grid-two"><div class="field-group"><label for="alias">${esc(f.alias.label)}</label><input class="form-control" id="alias" name="alias" type="text" autocomplete="nickname" maxlength="60" required value="${esc(draft.alias)}" placeholder="${esc(f.alias.placeholder)}" aria-invalid="${Boolean(errors.alias)}" aria-describedby="${errors.alias?'error-alias':''}"><span class="field-error" id="error-alias"${errors.alias?'':' hidden'}>${errors.alias?esc(copy.errors.alias):''}</span></div>
       <div class="field-group"><label for="email">${esc(f.email.label)}</label><input class="form-control" id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required value="${esc(draft.email)}" placeholder="${esc(f.email.placeholder)}" aria-invalid="${Boolean(errors.email)}" aria-describedby="${errors.email?'error-email':''}"><span class="field-error" id="error-email"${errors.email?'':' hidden'}>${errors.email?esc(copy.errors.email):''}</span></div></div>
       ${offers.length?offerMarkupForBooking():''}
-      <div class="form-grid form-grid-two"><div class="field-group"><label for="preferredDate">${esc(f.preferredDate.label)}</label><input class="form-control" id="preferredDate" name="preferredDate" type="date" required value="${esc(draft.preferredDate)}" aria-invalid="${Boolean(errors.preferredDate)}" aria-describedby="date-helper error-preferredDate"><span class="field-helper" id="date-helper">${esc(f.preferredDate.helper)}</span><span class="field-error" id="error-preferredDate"${errors.preferredDate?'':' hidden'}>${errors.preferredDate?esc(copy.errors.preferredDate):''}</span></div>
-      <div class="field-group"><label for="preferredTime">${esc(f.preferredTime.label)}</label><input class="form-control" id="preferredTime" name="preferredTime" type="time" step="60" required value="${esc(draft.preferredTime)}" aria-invalid="${Boolean(errors.preferredTime)}" aria-describedby="time-helper error-preferredTime"><span class="field-helper" id="time-helper">${esc(f.preferredTime.helper)}</span><span class="field-error" id="error-preferredTime"${errors.preferredTime?'':' hidden'}>${errors.preferredTime?esc(copy.errors.preferredTime):''}</span></div></div>
-      <div class="field-group"><label for="timezone">${esc(f.timezone.label)}</label><select class="form-control" id="timezone" name="timezone" required aria-invalid="${Boolean(errors.timezone)}" aria-describedby="error-timezone">${timezoneOptionsHtml}</select><span class="field-error" id="error-timezone"${errors.timezone?'':' hidden'}>${errors.timezone?esc(copy.errors.timezone):''}</span></div>
+      <div class="field-group"><label for="preferredDate">${esc(f.preferredDate.label)}</label><input class="form-control" id="preferredDate" name="preferredDate" type="date" min="${today()}" required value="${esc(draft.preferredDate)}" aria-invalid="${Boolean(errors.preferredDate)}" aria-describedby="date-helper error-preferredDate"><span class="field-helper" id="date-helper">${esc(f.preferredDate.helper)}</span><span class="field-error" id="error-preferredDate"${errors.preferredDate?'':' hidden'}>${errors.preferredDate?esc(copy.errors.preferredDate):''}</span></div>
       <div class="field-group"><label for="note">${esc(f.note.label)}</label><textarea class="form-control" id="note" name="note" maxlength="1000" aria-describedby="note-helper note-count error-note" placeholder="${esc(f.note.placeholder)}">${esc(draft.note)}</textarea><span class="field-helper" id="note-helper">${esc(f.note.helper)}</span><span class="note-count" id="note-count">${draft.note.length}/1000</span><span class="field-error" id="error-note"${errors.note?'':' hidden'}>${errors.note?esc(copy.errors.note):''}</span></div>
       <div class="declaration-list"><div class="field-check"><input id="adult" name="adult" type="checkbox" required${draft.adult?' checked':''} aria-invalid="${Boolean(errors.adult)}" aria-describedby="error-adult"><label for="adult">${esc(f.adult.label)}</label><span class="field-error" id="error-adult"${errors.adult?'':' hidden'}>${errors.adult?esc(copy.errors.adult):''}</span></div>
       <div class="field-check"><input id="policy" name="policy" type="checkbox" required${draft.policy?' checked':''} aria-invalid="${Boolean(errors.policy)}" aria-describedby="error-policy"><label for="policy">${esc(f.policy.label)} <a href="/policies">${esc(f.policy.linkText)}</a></label><span class="field-error" id="error-policy"${errors.policy?'':' hidden'}>${errors.policy?esc(copy.errors.policy):''}</span></div></div>
@@ -441,30 +422,26 @@ function bindBooking() {
     const form=state.querySelector('#booking-form'); bindDraftFields(form);
     form.addEventListener('submit',event=>{event.preventDefault();collectDraft(form);const result=validateDraft(draft,site);lastErrors=result.errors;if(!result.valid){showDetails();state.querySelector('.error-summary')?.focus();return;}draft=result.draft;lastErrors={};showReview();});
     state.querySelectorAll('.error-summary a').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();state.querySelector(link.getAttribute('href'))?.focus();}));
-    if(draft.timezone) form.elements.timezone.value=draft.timezone;
-    updateDateMinimum(form);
     if(focusFirst) state.querySelector('#alias')?.focus({preventScroll:true});
   }
   function bindDraftFields(form){
-    form.addEventListener('input',event=>{const el=event.target;if(el.name&&el.name in draft){draft[el.name]=el.type==='checkbox'?el.checked:el.value;}if(el.name==='note'){const count=state.querySelector('#note-count');count.textContent=`${el.value.length}/1000`;count.classList.toggle('is-near-limit',el.value.length>=800);}if(el.name==='timezone')updateDateMinimum(form);});
-    form.addEventListener('change',event=>{const el=event.target;if(el.name&&el.name in draft)draft[el.name]=el.type==='checkbox'?el.checked:el.value;if(el.name==='timezone')updateDateMinimum(form);});
+    form.addEventListener('input',event=>{const el=event.target;if(el.name&&el.name in draft){draft[el.name]=el.type==='checkbox'?el.checked:el.value;}if(el.name==='note'){const count=state.querySelector('#note-count');count.textContent=`${el.value.length}/1000`;count.classList.toggle('is-near-limit',el.value.length>=800);}});
+    form.addEventListener('change',event=>{const el=event.target;if(el.name&&el.name in draft)draft[el.name]=el.type==='checkbox'?el.checked:el.value;});
     form.addEventListener('focusout',event=>{const el=event.target;if(!lastErrors[el.name])return;collectDraft(form);const result=validateDraft(draft,site);if(result.errors[el.name])return;delete lastErrors[el.name];el.setAttribute('aria-invalid','false');const error=state.querySelector(`#error-${CSS.escape(el.name)}`);if(error){error.hidden=true;error.textContent='';}const summary=state.querySelector('.error-summary');if(!Object.keys(lastErrors).length)summary?.remove();else if(summary)summary.outerHTML=errorSummary(lastErrors);});
   }
-  function collectDraft(form){for(const field of ['alias','email','offeringId','preferredDate','preferredTime','timezone','note','adult','policy']){const element=field==='offeringId'?form.querySelector('[name="offeringId"]:checked'):form.elements[field];if(element)draft[field]=element.type==='checkbox'?element.checked:element.value;}}
-  function updateDateMinimum(form){const zone=form.elements.timezone.value;if(!zone)return;const now=new Date();try{const parts=new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);const val=t=>parts.find(p=>p.type===t)?.value;form.elements.preferredDate.min=`${val('year')}-${val('month')}-${val('day')}`;}catch{}}
+  function collectDraft(form){for(const field of ['alias','email','offeringId','preferredDate','note','adult','policy']){const element=field==='offeringId'?form.querySelector('[name="offeringId"]:checked'):form.elements[field];if(element)draft[field]=element.type==='checkbox'?element.checked:element.value;}}
   function offerField(){return `<fieldset class="field-group offer-fieldset" id="offeringId"><legend>${esc(copy.booking.fields.offeringId.label)}</legend><div class="offer-grid">${offers.map(offer=>`<label class="offer-option"><input type="radio" name="offeringId" required value="${esc(offer.id)}"${draft.offeringId===offer.id?' checked':''}><span><strong>${esc(offer.title)}</strong><span>${esc(offer.description)}</span><span>${offer.durationMinutes?`${offer.durationMinutes} minutes · `:''}${esc(pricingText(offer))}</span></span></label>`).join('')}</div><span class="field-error" id="error-offeringId"${lastErrors.offeringId?'':' hidden'}>${lastErrors.offeringId?esc(copy.errors.offeringId):''}</span></fieldset>`;}
   function offerMarkupForBooking(){return '';}
   function errorSummary(errors){return `<div class="error-summary" tabindex="-1" role="alert"><h3>${esc(copy.errors.summary)}</h3><ul>${Object.keys(errors).map(key=>`<li><a href="#${key==='offeringId'?'offeringId':key}">${esc(copy.errors[key])}</a></li>`).join('')}</ul></div>`;}
-  function showReview(){step='review';setStepIndicator(step);const offer=offers.find(item=>item.id===draft.offeringId);const rows=[[copy.booking.review.alias,draft.alias],[copy.booking.review.email,draft.email],[copy.booking.review.offering,offer?.title||copy.booking.review.generalRequest],[copy.booking.review.date,draft.preferredDate],[copy.booking.review.time,draft.preferredTime],[copy.booking.review.timezone,draft.timezone.replaceAll('_',' ')],[copy.booking.review.price,pricingText(offer)]];
+  function showReview(){step='review';setStepIndicator(step);const offer=offers.find(item=>item.id===draft.offeringId);const rows=[[copy.booking.review.alias,draft.alias],[copy.booking.review.email,draft.email],[copy.booking.review.offering,offer?.title||copy.booking.review.generalRequest],[copy.booking.review.date,draft.preferredDate],[copy.booking.review.price,pricingText(offer)]];
     state.innerHTML=`<section class="review-state"><h2 id="booking-review-title" tabindex="-1">${esc(copy.booking.review.heading)}</h2><p>${esc(copy.booking.review.body)}</p><dl class="review-list">${rows.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}<div><dt>${esc(copy.booking.review.note)}</dt><dd class="review-note">${draft.note?esc(draft.note):esc(copy.booking.review.noNote)}</dd></div><div><dt>${esc(copy.booking.review.adult)}</dt><dd>${esc(copy.booking.review.declarationValue)}</dd></div><div><dt>${esc(copy.booking.review.policy)}</dt><dd>${esc(copy.booking.review.declarationValue)}</dd></div></dl><p class="review-notice">${esc(copy.booking.review.notice)}</p><div class="form-actions"><button class="action action-secondary" id="edit-details" type="button">${esc(copy.booking.edit)}</button><button class="action action-primary" id="prepare-request" type="button">${esc(copy.booking.prepare)} ${arrow}</button></div></section>`;
     state.querySelector('#booking-review-title').focus({preventScroll:true});state.querySelector('#edit-details').addEventListener('click',()=>showDetails());state.querySelector('#prepare-request').addEventListener('click',()=>{const result=prepareRequest(draft,site);if(!result.ok){if(result.code==='invalid-draft'){lastErrors=result.errors;showDetails();state.querySelector('.error-summary')?.focus();}else state.insertAdjacentHTML('afterbegin',`<p class="field-error">${esc(result.configErrors?.join(' ')||'The booking configuration needs attention.')}</p>`);return;}prepared=result;showReady();});
   }
   function showReady(){step='ready';setStepIndicator(step);const handoff=emailHandoff(site.booking.contactEmail,prepared.subject,prepared.body,site.booking.mailtoUriBudget);const emailControl=handoff.ok?`<a class="action action-primary" href="${esc(handoff.href)}">${esc(copy.booking.ready.email)} ${arrow}</a>`:`<div><button class="action action-primary" type="button" disabled>${esc(copy.booking.ready.email)}</button><p class="field-helper">${esc(handoff.code==='too-long'?copy.booking.ready.longEmail:copy.booking.ready.noEmail)}${handoff.code==='too-long'&&handoff.email?` <span class="contact-email">${esc(handoff.email)}</span>`:''}</p></div>`;
-    state.innerHTML=`<section class="ready-state"><h2 id="booking-ready-title" tabindex="-1">${esc(copy.booking.ready.heading)}</h2><p>${esc(copy.booking.ready.body)}</p><label for="request-text">${esc(copy.booking.ready.requestTextLabel)}</label><textarea id="request-text" class="form-control request-text" readonly spellcheck="false">${esc(prepared.body)}</textarea><p class="ready-message" id="ready-message" aria-live="polite">${esc(copy.booking.ready.leavingNotice)}</p><div class="ready-actions">${emailControl}<button class="action action-secondary" id="copy-request" type="button">${esc(copy.booking.ready.copy)}</button><button class="action action-secondary" id="download-request" type="button">${esc(copy.booking.ready.download)}</button><button class="text-action" id="start-again" type="button">${esc(copy.booking.ready.startAgain)}</button></div></section>`;
+    state.innerHTML=`<section class="ready-state"><h2 id="booking-ready-title" tabindex="-1">${esc(copy.booking.ready.heading)}</h2><p>${esc(copy.booking.ready.body)}</p><label for="request-text">${esc(copy.booking.ready.requestTextLabel)}</label><textarea id="request-text" class="form-control request-text" readonly spellcheck="false">${esc(prepared.body)}</textarea><p class="ready-message" id="ready-message" aria-live="polite">${esc(copy.booking.ready.leavingNotice)}</p><div class="ready-actions">${emailControl}<button class="action action-secondary" id="copy-request" type="button">${esc(copy.booking.ready.copy)}</button><button class="text-action" id="start-again" type="button">${esc(copy.booking.ready.startAgain)}</button></div></section>`;
     state.querySelector('#booking-ready-title').focus({preventScroll:true});
     state.querySelector('#copy-request').addEventListener('click',async()=>{const result=await (await import('/booking/booking-core.mjs')).copyRequestText(prepared.body);const message=state.querySelector('#ready-message');if(result.ok)message.textContent=copy.booking.ready.copied;else{const textarea=state.querySelector('#request-text');textarea.focus();textarea.select();message.textContent=copy.booking.ready.copyFallback;}});
-    state.querySelector('#download-request').addEventListener('click',()=>{const result=downloadRequestText(prepared.body);if(!result.ok){const textarea=state.querySelector('#request-text');textarea.focus();textarea.select();state.querySelector('#ready-message').textContent=copy.booking.ready.copyFallback;}});
-    state.querySelector('#start-again').addEventListener('click',()=>{draft={alias:'',email:'',offeringId:null,preferredDate:'',preferredTime:'',timezone:'',note:'',adult:false,policy:false};lastErrors={};showDetails(true);});
+    state.querySelector('#start-again').addEventListener('click',()=>{draft={alias:'',email:'',offeringId:null,preferredDate:'',note:'',adult:false,policy:false};lastErrors={};showDetails(true);});
   }
   showDetails(true);
 }
